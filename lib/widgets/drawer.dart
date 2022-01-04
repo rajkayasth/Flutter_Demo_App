@@ -20,7 +20,7 @@ class MyDrawer extends StatelessWidget {
                   margin: const EdgeInsets.all(0),
                   accountName: Text('$name   -  Raj Kayasth',style: const TextStyle(fontWeight: FontWeight.bold),),
                   accountEmail: Text('$email -    Raj@gmail.com',style: const TextStyle(fontWeight: FontWeight.bold),),
-                  currentAccountPicture: CircleAvatar(backgroundImage: NetworkImage(imageURL),),)),
+                  currentAccountPicture: CircleAvatar(backgroundImage: NetworkImage(imageURL) ,),)),
             ListTile(
               title: Text('Home',textScaleFactor: 1.3,style: TextStyle(color: Colors.white,),textAlign : TextAlign.left,)
               ,leading: Icon(CupertinoIcons.home,color: Colors.white,),),

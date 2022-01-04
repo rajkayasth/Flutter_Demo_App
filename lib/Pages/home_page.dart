@@ -42,9 +42,9 @@ class _HomePageState extends State<HomePage> {
       ),
       body: Padding(
         padding: const EdgeInsets.all(16.0),
-        child:  ListView.builder(itemCount: CatelogModel.items.length,itemBuilder: (context,index){
+        child: (CatelogModel.items != null && CatelogModel.items.isNotEmpty)? ListView.builder(itemCount: CatelogModel.items.length,itemBuilder: (context,index){
           return ItemWidget(item: CatelogModel.items[index],);
-        },),
+        },):Center(child: CircularProgressIndicator(),)
       ),
       drawer: MyDrawer(),
     );

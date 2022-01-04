@@ -1,12 +1,5 @@
 class CatelogModel{
-  static  List<Item> items = [Item(
-      id: 1,
-      name: "Iphone 12 pro",
-      desc: "Apple Iphone 12th generation",
-      price: 999,
-      color: "33505A",
-      imageUrl: "https://m.media-amazon.com/images/I/71MHTD3uL4L.jpg"
-  )];
+  static  List<Item> items = [] ;
 }
 
 class Item{
@@ -20,23 +13,25 @@ class Item{
 
   Item({required this.id, required this.name, required this.desc, required this.price, required this.color, required this.imageUrl});
 
-  factory Item.fromMap(Map<String,dynamic> map){
+  Map<String, dynamic> toMap() {
+    return {
+      'id': this.id,
+      'name': this.name,
+      'desc': this.desc,
+      'price': this.price,
+      'color': this.color,
+      'imageUrl': this.imageUrl,
+    };
+  }
+
+  factory Item.fromMap(Map<String, dynamic> map) {
     return Item(
-      id: map["id"],
-      name: map["name"],
-      desc: map["desc"],
-      price: map["price"],
-      color: map["color"],
-      imageUrl: map["imageUrl"],
+      id: map['id'] as int,
+      name: map['name'] as String,
+      desc: map['desc'] as String,
+      price: map['price'] as num,
+      color: map['color'] as String,
+      imageUrl: map['imageUrl'] as String,
     );
   }
-  toMap() => {
-    "id" : id,
-    "name" : name,
-    "desc" : desc,
-    "price" : price,
-    "color" : color,
-    "imageUrl" : imageUrl,
-  };
-
 }
