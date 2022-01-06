@@ -3,6 +3,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_second_app/Utils/routes.dart';
+import 'package:velocity_x/src/extensions/context_ext.dart';
 
 class LoginPage extends StatefulWidget {
   @override
@@ -31,7 +32,7 @@ class _LoginPageState extends State<LoginPage> {
   Widget build(BuildContext context) {
     // ignore: prefer_const_constructors
     return Material(
-        color: Colors.white,
+        color: context.canvasColor,
         child: SingleChildScrollView(
           child: Form(
             key: _formKey,
@@ -42,7 +43,7 @@ class _LoginPageState extends State<LoginPage> {
                   fit: BoxFit.cover,
 
                 ),
-                SizedBox(height: 20.0, child: Text('Hello'),),
+                SizedBox(height: 20.0,),
                 Text('Welcome $name',
                   style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),),
                 SizedBox(height: 20.0,),
@@ -71,12 +72,12 @@ class _LoginPageState extends State<LoginPage> {
                     ),
                     SizedBox(height: 40.0,),
                     Material(
-                      color:  Colors.deepPurpleAccent,
+                      color:  context.theme.buttonColor ,
                       child: InkWell(
                         onTap: () => moveToHome(context),
                         child: AnimatedContainer(
                           duration: Duration(seconds: 1),
-                          width: changeButton? 100 : 150,
+                          width: changeButton? 50 : 150,
                           height: 50,
                           alignment: Alignment.center,
                           child: changeButton ? Icon(Icons.done, color: Colors.white,) : Text('Login',style: TextStyle(color: Colors.white,

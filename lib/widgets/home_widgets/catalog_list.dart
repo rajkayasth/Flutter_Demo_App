@@ -9,8 +9,9 @@ import 'catalog_image.dart';
 class CatalogList extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return ListView.builder(itemBuilder: (context, index) {
-      final catalog = CatelogModel.items[index];
+    return ListView.builder(
+      itemBuilder: (context, index) {
+      final catalog = CatelogModel.getByPosition(index);
       return InkWell(
         onTap: () => Navigator.push(context, MaterialPageRoute(builder: (context) =>  HomeDetailsPage(catalog: catalog))),
           child: CatalogItem(catalog: catalog));
@@ -33,7 +34,7 @@ class CatalogItem extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                catalog.name.text.bold.color(MyTheme.darkBluishColor).make(),
+                catalog.name.text.bold.color(context.accentColor).make(),
                 catalog.desc.text.caption(context).make(),
                 10.heightBox,
                 ButtonBar(
@@ -43,9 +44,9 @@ class CatalogItem extends StatelessWidget {
                     "\$${catalog.price}".text.bold.xl.make(),
                     ElevatedButton(onPressed: () {},
                       style: ButtonStyle(
-                          backgroundColor: MaterialStateProperty.all(MyTheme.darkBluishColor),
+                          backgroundColor: MaterialStateProperty.all(context.theme.buttonColor),
                           shape: MaterialStateProperty.all(StadiumBorder())
-                      ), child: "BUY".text.make(),)
+                      ), child: "Add to Cart".text.make(),)
                   ],
                 ).pOnly(right: 8.0)
 
@@ -53,6 +54,6 @@ class CatalogItem extends StatelessWidget {
             ))
           ],
         )
-    ).white.roundedLg.square(150).make().py16();
+    ).color(context.cardColor).roundedLg.square(150).make().py16();
   }
 }
