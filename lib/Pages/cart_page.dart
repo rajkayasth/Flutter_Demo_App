@@ -2,9 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_second_app/Core/Store.dart';
 import 'package:flutter_second_app/models/cart.dart';
-import 'package:flutter_second_app/models/catelog.dart';
 import 'package:velocity_x/velocity_x.dart';
-import 'package:flutter_second_app/widgets/themes.dart';
 
 class CartPage extends StatelessWidget {
 

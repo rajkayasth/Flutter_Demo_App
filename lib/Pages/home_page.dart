@@ -4,7 +4,7 @@ import 'package:flutter/services.dart';
 import 'package:flutter_second_app/Core/Store.dart';
 import 'package:flutter_second_app/Utils/routes.dart';
 import 'package:flutter_second_app/models/cart.dart';
-import 'package:flutter_second_app/widgets/themes.dart';
+import 'package:http/http.dart' as http;
 import 'dart:convert';
 import 'package:velocity_x/velocity_x.dart';
 import 'package:flutter_second_app/models/catelog.dart';
@@ -19,6 +19,7 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
+  final url = "";
   @override
   void initState() {
     // TODO: implement initState
